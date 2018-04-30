@@ -7,6 +7,7 @@ import static org.junit.Assert.fail;
 
 public class StringCalculatorTest {
 
+    // p1  ----------------
     @Test
     public void emptyStringShouldReturnZero() {
         StringCalculator sut = new StringCalculator();
@@ -27,5 +28,10 @@ public class StringCalculatorTest {
         StringCalculator sut = new StringCalculator();
         assertEquals(sut.calculate("22,55"), 77);
     }
-
+    // p2  ----------------
+    @Test
+    public void allowNnumersAsInput() {
+        StringCalculator sut = new StringCalculator();
+        assertEquals(sut.calculate("1,2,3,4,5,6,8,9"), 38);
+    }
 }
