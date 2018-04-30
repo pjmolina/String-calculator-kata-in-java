@@ -11,33 +11,40 @@ public class StringCalculatorTest {
     @Test
     public void emptyStringShouldReturnZero() {
         StringCalculator sut = new StringCalculator();
-        assertEquals(sut.calculate(""), 0);
+        assertEquals(0, sut.calculate(""));
     }
     @Test
     public void oneNumberShouldReturnItseft() {
         StringCalculator sut = new StringCalculator();
-        assertEquals(sut.calculate("3"), 3);
+        assertEquals(3, sut.calculate("3"));
     }
     @Test
     public void twoNumbersShouldBeAdded() {
         StringCalculator sut = new StringCalculator();
-        assertEquals(sut.calculate("2,5"), 7);
+        assertEquals(7, sut.calculate("2,5"));
     }
     @Test
     public void moreDigitsSupported() {
         StringCalculator sut = new StringCalculator();
-        assertEquals(sut.calculate("22,55"), 77);
+        assertEquals(77, sut.calculate("22,55"));
     }
     // p2  ----------------
     @Test
     public void allowNnumersAsInput() {
         StringCalculator sut = new StringCalculator();
-        assertEquals(sut.calculate("1,2,3,4,5,6,8,9"), 38);
+        assertEquals(45, sut.calculate("1,2,3,4,5,6,7,8,9"));
     }
     // p3 ------------------
     @Test
     public void supportNewLineAsSeparator() {
         StringCalculator sut = new StringCalculator();
-        assertEquals(sut.calculate("1\n2,3"), 6);
+        assertEquals(6, sut.calculate("1\n2,3"));
     }
+    // p3 ------------------
+    @Test
+    public void supportForCustomDelimiter() {
+        StringCalculator sut = new StringCalculator();
+        assertEquals(10, sut.calculate(";\n1;2;3;4"));
+    }
+
 }
