@@ -1,7 +1,12 @@
 package metadev.kata.stringcalc;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class StringCalculator {
     public int calculate(String text) {
+        List<String> negatives = new ArrayList<String>();
+
         if (text == null || text.isEmpty()) {
             return 0;
         }
@@ -16,8 +21,15 @@ public class StringCalculator {
                 --skipFirstLines;
             } else {
                 int num = Integer.parseInt(item);
+                if (num < 0) {
+                    negatives.add(item);
+                }
                 total += num;
             }
+        }
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException(
+                "negatives not allowed " + String.join(",", negatives));
         }
         return total;
     }
