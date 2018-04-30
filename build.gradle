@@ -1,0 +1,23 @@
+version = '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+dependencies {
+    testCompileOnly('junit:junit:4.9')
+    
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    )
+    testRuntimeOnly(
+            'org.junit.jupiter:junit-jupiter-engine:5.2.0',
+            'org.junit.vintage:junit-vintage-engine:5.2.0'
+    )
+}
+test {
+    useJUnitPlatform()
+}
+
