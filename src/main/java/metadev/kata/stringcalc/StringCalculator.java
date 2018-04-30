@@ -5,7 +5,7 @@ public class StringCalculator {
         if (text == null || text.isEmpty()) {
             return 0;
         }
-        String[] chuncks = text.split(",");
+        String[] chuncks = text.split(",|\n");
         int total = 0;
         for (String item : chuncks) {
             int num = Integer.parseInt(item);
